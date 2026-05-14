@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Свадебное приглашение</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #596b3f;
+      --bg-deep: #4f6036;
+      --card: #f3eadc;
+      --text: #364127;
+      --text-soft: #675f52;
+      --milk: #f8f0df;
+      --accent: #a72c2c;
+      --accent-soft: #bc4b46;
+      --olive: #66753d;
+      --olive-soft: #8d9767;
+      --shadow: rgba(25, 28, 19, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 22%),
+        radial-gradient(circle at 50% 15%, rgba(255,255,255,0.05), transparent 20%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+    }
+
+    .page {
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      padding: 14px 14px 48px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 28px;
+      padding: 22px 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 14px 30px var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .script {
+      font-family: "Bad Script", cursive;
+      font-weight: 700;
+      text-shadow:
+        0.3px 0 currentColor,
+        -0.3px 0 currentColor;
+    }
+
+    .hero-card {
+      text-align: center;
+      padding-top: 18px;
+    }
+
+    .hero-title {
+      color: var(--text);
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+
+    .hero-title::before {
+      content: "♥ ";
+      color: var(--accent);
+      margin-right: 6px;
+    }
+
+    .hero-title::after {
+      content: " ♥";
+      color: var(--accent);
+      margin-left: 6px;
+    }
+
+    .phone-frame {
+      width: 100%;
+      max-width: 248px;
+      margin: 0 auto 18px;
+      background: #111;
+      border-radius: 34px;
+      padding: 8px;
+      box-shadow:
+        0 0 0 3px #dad2c3,
+        0 8px 24px rgba(0,0,0,0.22);
+      position: relative;
+    }
+
+    .phone-frame::before {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 86px;
+      height: 18px;
+      background: #0a0a0a;
+      border-radius: 0 0 14px 14px;
+      z-index: 3;
+    }
+
+    .phone-screen {
+      background: #f7f0e4;
+      border-radius: 26px;
+      overflow: hidden;
+      position: relative;
+      min-height: 520px;
+      padding: 24px 12px 18px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .screen-top-note {
+      font-family: "Bad Script", cursive;
+      color: var(--text);
+      font-size: 23px;
+      line-height: 1.05;
+      text-align: center;
+      font-weight: 700;
+      margin: 0 auto 14px;
+      width: 100%;
+      max-width: 210px;
+    }
+
+    .screen-top-note span {
+      display: inline-block;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2px;
+    }
+
+    .mini-hearts {
+      color: var(--accent);
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: 4px;
+      margin: 0 auto 22px;
+      text-align: center;
+    }
+
+    .screen-photo {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .screen-photo::before {
+      display: none;
+    }
+
+    .screen-photo img {
+      width: 96%;
+      max-width: 240px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 20px;
+    }
+
+    .date-pill {
+      margin: 0 auto 4px;
+      display: inline-block;
+      background: var(--olive);
+      color: var(--milk);
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-family: "Bad Script", cursive;
+      font-size: 17px;
+      align-self: center;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 33px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .tiny-text {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-soft);
+      text-align: center;
+      margin: 0 auto;
+      max-width: 250px;
+    }
+
+    .calendar-box {
+      margin-top: 20px;
+      border: 3px solid var(--accent-soft);
+      border-radius: 10px;
+      padding: 14px 10px 10px;
+      position: relative;
+    }
+
+    .calendar-box::before,
+    .calendar-box::after {
+      content: "❦";
+      position: absolute;
+      color: var(--accent-soft);
+      font-size: 28px;
+      top: -18px;
+      background: var(--card);
+      padding: 0 8px;
+    }
+
+    .calendar-box::before {
+      left: 10px;
+    }
+
+    .calendar-box::after {
+      right: 10px;
+      transform: scaleX(-1);
+    }
+
+    .calendar-month {
+      text-align: center;
+      font-family: "Bad Script", cursive;
+      font-size: 30px;
+      color: var(--accent-soft);
+      margin-bottom: 10px;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      font-size: 12px;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .calendar-grid div {
+      padding: 4px 0;
+    }
+
+    .calendar-week {
+      font-weight: 600;
+      color: #7f786c;
+    }
+
+    .calendar-active.heart-day {
+      position: relative;
+      width: 34px;
+      height: 30px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+    }
+
+    .calendar-active.heart-day::before {
+      content: "♥";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -52%);
+      font-size: 34px;
+      line-height: 1;
+      color: var(--accent);
+    }
+
+    .calendar-active.heart-day span {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 400;
+      font-family: "Montserrat", sans-serif;
+      line-height: 1;
+    }
+
+    .garland {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      flex-wrap: wrap;
+      color: #e8c750;
+      font-size: 20px;
+    }
+
+    .timing-card::before {
+      content: "";
+      position: absolute;
+      top: 16px;
+      left: 10px;
+      width: 68px;
+      height: 68px;
+      border-top: 2px solid rgba(167,44,44,0.5);
+      border-left: 2px solid rgba(167,44,44,0.5);
+      border-radius: 18px 0 0 0;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .time-item {
+      text-align: center;
+    }
+
+    .time-title {
+      font-size: 14px;
+      color: #6f6659;
+      margin-bottom: 2px;
+    }
+
+    .time-value {
+      font-family: "Bad Script", cursive;
+      font-size: 38px;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .time-note {
+      margin-top: 3px;
+      font-size: 11px;
+      color: #8d8478;
+      line-height: 1.35;
+    }
+    .time-item {
+  position: relative;
+}
+
+
+    .location-box {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      margin: 8px auto 0;
+      padding: 22px 18px;
+      background: rgba(98, 106, 55, 0.12);
+      border: 2px solid rgba(98, 106, 55, 0.55);
+      border-radius: 22px;
+      text-align: center;
+    }
+
+    .location-box::before {
+      display: none;
+    }
+
+    .location-box::after {
+      content: "♥  ♥  ♥  ♥  ♥";
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f3eadc;
+      padding: 0 10px;
+      color: #626A37;
+      font-size: 16px;
+      line-height: 1;
+      letter-spacing: 3px;
+    }
+
+    .location-text {
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .location-text strong {
+      color: #626A37;
+    }
+
+    .location-text a {
+      color: #626A37;
+      text-decoration: underline;
+    }
+
+    .dress-card .petal {
+  position: relative;
+  width: 230px;
+  height: 220px;
+  margin: 10px auto 28px;
+  background: #b53030;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 34px 24px 42px;
+  font-size: 12px;
+  line-height: 1.5;
+  clip-path: polygon(
+    8% 18%,
+    18% 6%,
+    30% 14%,
+    40% 4%,
+    50% 14%,
+    60% 4%,
+    72% 14%,
+    82% 6%,
+    92% 18%,
+    96% 34%,
+    94% 58%,
+    88% 74%,
+    74% 88%,
+    58% 96%,
+    42% 96%,
+    26% 88%,
+    12% 74%,
+    6% 58%,
+    4% 34%
+  );
+}
+
+.dress-card .petal::before {
+  content: "";
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-8deg);
+  width: 120px;
+  height: 48px;
+  background: #556b2f;
+  border-radius: 0 100% 0 100%;
+  z-index: -1;
+}
+
+.dress-card .petal::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 52%;
+  transform: translateX(-50%) rotate(8deg);
+  width: 92px;
+  height: 28px;
+  background: #6e8440;
+  border-radius: 0 100% 0 100%;
+  z-index: -1;
+}
+
+    .dresscode-palette {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .dresscode-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+    }
+
+    .dress-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+      flex: 0 0 24px;
+    }
+
+    .film-card {
+      padding: 18px 18px 26px;
+      position: relative;
+      overflow: visible;
+    }
+
+    .film-card::before,
+    .film-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 18px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          #b54141 0 14px,
+          #f3eadc 14px 24px
+        );
+    }
+
+    .film-card::before {
+      top: -2px;
+    }
+
+    .film-card::after {
+      bottom: -2px;
+    }
+
+    .memory-box {
+      border: 2px dashed rgba(180,74,69,0.5);
+      border-radius: 14px;
+      padding: 18px 14px;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 13px;
+      line-height: 1.5;
+      margin-top: 16px;
+      background: rgba(255,255,255,0.22);
+    }
+    .memory-link {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: var(--olive);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+.meeting-photo {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 8px !important;
+}
+
+.meeting-photo img {
+  display: block;
+  width: auto !important;
+  height: auto !important;
+  max-width: 400px !important;
+  max-height: 550px !important;
+}
+
+    .rsvp-button {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .organizer-box {
+      margin: 22px auto 0;
+      max-width: 290px;
+      padding: 22px 18px;
+      border: 2px solid rgba(102, 117, 61, 0.45);
+      border-radius: 24px;
+      background: rgba(98, 106, 55, 0.10);
+      text-align: center;
+    }
+
+    .organizer-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--olive);
+      margin-bottom: 10px;
+    }
+
+    .organizer-text {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text);
+      max-width: 240px;
+      margin: 0 auto;
+    }
+
+    .organizer-links {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .organizer-link {
+      display: inline-block;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: #7d8744;
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .organizer-actions {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.organizer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 22px;
+  background: #8f9446;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  transition: 0.2s ease;
+}
+
+.organizer-btn:hover {
+  background: #7f843d;
+  transform: translateY(-1px);
+}
+
+    .meeting-title {
+      margin-top: 28px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .countdown-item {
+      min-width: 68px;
+      text-align: center;
+    }
+
+    .countdown-value {
+      font-family: "Bad Script", cursive;
+      font-size: 28px;
+      color: var(--text);
+    }
+
+    .countdown-label {
+      font-size: 11px;
+      color: #7f776b;
+      text-transform: lowercase;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--milk);
+      font-size: 13px;
+      padding-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <section class="card hero-card">
+      <div class="hero-title script">Приглашение на свадьбу</div>
+
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <div class="phone-center">
+            <div class="screen-top-note">
+              Илья + Анастасия =<br><span>любовь</span>
+            </div>
+
+            <div class="mini-hearts">♥ ♥ ♥ ♥ ♥</div>
+
+            <div class="screen-photo">
+              <img src="/static/img/н и и.png" alt="Анастасия и Илья">
+            </div>
+          </div>
+
+          <div class="date-pill">8 августа 2026 года</div>
+        </div>
+      </div>
+
+      <div class="section-title script">Узнали?</div>
+      <p class="tiny-text">
+        Время пронеслось незаметно, и теперь мы зовём вас
+        разделить с нами один из самых счастливых дней нашей жизни.
+      </p>
+
+      <div class="calendar-box">
+        <div class="calendar-month">Август</div>
+        <div class="calendar-grid">
+          <div class="calendar-week">вс</div><div class="calendar-week">пн</div><div class="calendar-week">вт</div><div class="calendar-week">ср</div><div class="calendar-week">чт</div><div class="calendar-week">пт</div><div class="calendar-week">сб</div>
+          <div></div><div></div><div></div><div></div><div></div><div>1</div><div>2</div>
+          <div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div class="calendar-active heart-day"><span>8</span></div><div>9</div>
+          <div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div>
+          <div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div>
+          <div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div>
+          <div>31</div><div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+      </div>
+
+      <div class="garland">✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦</div>
+    </section>
+
+    <section class="card timing-card">
+  <div class="section-title script">Тайминг</div>
+
+  <div class="timeline">
+    <div class="time-item">
+      <div class="time-title">Сбор желающих гостей у ЗАГСа</div>
+      <div class="time-value">15:30</div>
+    </div>
+
+    <div class="time-item">
+      <div class="time-title">Регистрация</div>
+      <div class="time-value">16:00</div>
+    </div>
+
+    <div class="time-item">
+      <div class="time-title">Сбор гостей на банкет</div>
+      <div class="time-value">17:30</div>
+    </div>
+
+    <div class="time-item">
+      <div class="time-title">Начало банкета</div>
+      <div class="time-value">18:00</div>
+    </div>
+
+    <div class="time-item">
+      <div class="time-title">Окончание официальной части</div>
+      <div class="time-value">23:00</div>
+    </div>
+  </div>
+</section>
+
+    <section class="card">
+      <div class="section-title script">Локация</div>
+
+      <div class="location-box">
+        <div class="location-text">
+          <strong>ЗАГС:</strong><br>
+          улица Карла Либкнехта, 3<br>
+          <a href="https://yandex.ru/maps/-/CPaxn090" target="_blank" rel="noopener noreferrer">
+            Посмотреть, куда прийти, чтобы поплакать
+          </a>
+
+          <br><br>
+
+          <strong>Банкет:</strong><br>
+          Кольцовский тракт, 10-й километр, 15<br>
+          <a href="https://yandex.ru/maps/-/CPaxnQyj" target="_blank" rel="noopener noreferrer">
+            Посмотреть, куда ехать праздновать
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="card dress-card">
+      <div class="section-title script">Дресс-код</div>
+
+      <div class="petal">
+        Нам будет очень приятно, если вы поддержите атмосферу праздника
+        образами в тёплых, природных и винных оттенках.
+      </div>
+
+      <div class="dresscode-palette">
+        <div class="dresscode-row">
+          <div class="dress-dot" style="background-color:#626A37;"></div>
+          <div class="dress-dot" style="background-color:#90976B;"></div>
+          <div class="dress-dot" style="background-color:#7E846A;"></div>
+          <div class="dress-dot" style="background-color:#97A085;"></div>
+          <div class="dress-dot" style="background-color:#D4DCC5;"></div>
+        </div>
+
+        <div class="dresscode-row">
+          <div class="dress-dot" style="background-color:#48342E;"></div>
+          <div class="dress-dot" style="background-color:#573729;"></div>
+          <div class="dress-dot" style="background-color:#6A4634;"></div>
+          <div class="dress-dot" style="background-color:#714F45;"></div>
+          <div class="dress-dot" style="background-color:#A1805F;"></div>
+        </div>
+
+        <div class="dresscode-row">
+          <div class="dress-dot" style="background-color:#937168;"></div>
+          <div class="dress-dot" style="background-color:#AA7970;"></div>
+          <div class="dress-dot" style="background-color:#B28B86;"></div>
+          <div class="dress-dot" style="background-color:#BBA09F;"></div>
+          <div class="dress-dot" style="background-color:#D6C0C2;"></div>
+        </div>
+
+        <div class="dresscode-row">
+          <div class="dress-dot" style="background-color:#B4917B;"></div>
+          <div class="dress-dot" style="background-color:#AC9988;"></div>
+          <div class="dress-dot" style="background-color:#CEBCAE;"></div>
+          <div class="dress-dot" style="background-color:#D8C2AB;"></div>
+          <div class="dress-dot" style="background-color:#D8D5C4;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card film-card">
+  <div class="section-title script">Воспоминания</div>
+
+  <div class="memory-box">
+    Дорогие гости! После свадьбы в этом поле 
+    появится ссылка на диск со всеми фотографями со свадьбы.
+    <br><br>
+  </div>
+</section>
+
+    <section class="card">
+      <div class="section-title script">Анкета</div>
+
+      <p class="tiny-text">
+        Пожалуйста, заполните короткую анкету,
+        чтобы мы могли учесть все детали вашего присутствия.
+      </p>
+
+      <div style="text-align:center;">
+        <a
+          class="rsvp-button"
+          href="https://docs.google.com/forms/d/e/1FAIpQLScDTKY3bpYLlED8IYpb6Lg7kn-PnOFSMD9ncb6A2FrPsVY0Lg/viewform?usp=publish-editor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Заполнить анкету
+        </a>
+      </div>
+
+      <div class="organizer-box">
+  <div class="organizer-title">Организатор - Яна</div>
+  <div class="organizer-text">
+    Если у вас появятся вопросы,
+    пожалуйста, свяжитесь с организатором.
+  </div>
+
+  <div class="organizer-actions">
+    <a href="https://t.me/+79120330605" class="organizer-btn" target="_blank" rel="noopener noreferrer">
+      Telegram
+    </a>
+    <a href="tel:+79120330605" class="organizer-btn">
+      Телефон
+    </a>
+  </div>
+</div>
+
+      <div class="section-title script meeting-title">До встречи через</div>
+
+<div class="meeting-photo">
+  <img src="/static/img/жн.png" alt="Жених и невеста">
+</div>
+
+
+
+      <div class="countdown">
+        <div class="countdown-item">
+          <div class="countdown-value" id="days">00</div>
+          <div class="countdown-label">дней</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value" id="hours">00</div>
+          <div class="countdown-label">часов</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value" id="minutes">00</div>
+          <div class="countdown-label">минут</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value" id="seconds">00</div>
+          <div class="countdown-label">секунд</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      С любовью, Илья и Анастасия
+    </footer>
+  </div>
+
+  <script>
+    const weddingDate = new Date('2026-08-08T16:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
