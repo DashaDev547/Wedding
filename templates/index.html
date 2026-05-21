@@ -127,9 +127,25 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       margin-top: 10px;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    .phone-top {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .phone-bottom {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
     }
 
     .screen-top-note {
@@ -170,16 +186,44 @@
       display: none;
     }
 
-    .screen-photo img {
-      width: 96%;
-      max-width: 240px;
-      display: block;
-      margin: 0 auto;
+    .two-photos {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 8px;
+      width: 100%;
+      margin: 0 auto 24px;
+    }
+
+    .photo-box {
+      overflow: hidden;
       border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f7f0e4;
+      flex-shrink: 0;
+    }
+
+    .photo-box-1 {
+      width: 100px;   /* меняй ширину первой фото */
+      height: 250px;  /* меняй высоту первой фото */
+    }
+
+    .photo-box-2 {
+      width: 110px;    /* меняй ширину второй фото */
+      height: 250px;  /* меняй высоту второй фото */
+    }
+
+    .photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .date-pill {
-      margin: 0 auto 4px;
+      margin: 0 auto;
       display: inline-block;
       background: var(--olive);
       color: var(--milk);
@@ -323,6 +367,7 @@
 
     .time-item {
       text-align: center;
+      position: relative;
     }
 
     .time-title {
@@ -344,10 +389,6 @@
       color: #8d8478;
       line-height: 1.35;
     }
-    .time-item {
-  position: relative;
-}
-
 
     .location-box {
       position: relative;
@@ -365,8 +406,6 @@
       display: none;
     }
 
-
-
     .location-text {
       color: var(--text);
       font-size: 13px;
@@ -383,67 +422,67 @@
     }
 
     .dress-card .petal {
-  position: relative;
-  width: 230px;
-  height: 220px;
-  margin: 10px auto 28px;
-  background: #b53030;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 34px 24px 42px;
-  font-size: 12px;
-  line-height: 1.5;
-  clip-path: polygon(
-    8% 18%,
-    18% 6%,
-    30% 14%,
-    40% 4%,
-    50% 14%,
-    60% 4%,
-    72% 14%,
-    82% 6%,
-    92% 18%,
-    96% 34%,
-    94% 58%,
-    88% 74%,
-    74% 88%,
-    58% 96%,
-    42% 96%,
-    26% 88%,
-    12% 74%,
-    6% 58%,
-    4% 34%
-  );
-}
+      position: relative;
+      width: 230px;
+      height: 220px;
+      margin: 10px auto 28px;
+      background: #b53030;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 34px 24px 42px;
+      font-size: 12px;
+      line-height: 1.5;
+      clip-path: polygon(
+        8% 18%,
+        18% 6%,
+        30% 14%,
+        40% 4%,
+        50% 14%,
+        60% 4%,
+        72% 14%,
+        82% 6%,
+        92% 18%,
+        96% 34%,
+        94% 58%,
+        88% 74%,
+        74% 88%,
+        58% 96%,
+        42% 96%,
+        26% 88%,
+        12% 74%,
+        6% 58%,
+        4% 34%
+      );
+    }
 
-.dress-card .petal::before {
-  content: "";
-  position: absolute;
-  bottom: -22px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-8deg);
-  width: 120px;
-  height: 48px;
-  background: #556b2f;
-  border-radius: 0 100% 0 100%;
-  z-index: -1;
-}
+    .dress-card .petal::before {
+      content: "";
+      position: absolute;
+      bottom: -22px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-8deg);
+      width: 120px;
+      height: 48px;
+      background: #556b2f;
+      border-radius: 0 100% 0 100%;
+      z-index: -1;
+    }
 
-.dress-card .petal::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 52%;
-  transform: translateX(-50%) rotate(8deg);
-  width: 92px;
-  height: 28px;
-  background: #6e8440;
-  border-radius: 0 100% 0 100%;
-  z-index: -1;
-}
+    .dress-card .petal::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 52%;
+      transform: translateX(-50%) rotate(8deg);
+      width: 92px;
+      height: 28px;
+      background: #6e8440;
+      border-radius: 0 100% 0 100%;
+      z-index: -1;
+    }
 
     .dresscode-palette {
       margin-top: 18px;
@@ -508,30 +547,32 @@
       margin-top: 16px;
       background: rgba(255,255,255,0.22);
     }
-    .memory-link {
-  display: inline-block;
-  margin-top: 6px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  background: var(--olive);
-  color: #fff;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-}
-.meeting-photo {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto 8px !important;
-}
 
-.meeting-photo img {
-  display: block;
-  width: auto !important;
-  height: auto !important;
-  max-width: 400px !important;
-  max-height: 550px !important;
-}
+    .memory-link {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: var(--olive);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .meeting-photo {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 8px !important;
+    }
+
+    .meeting-photo img {
+      display: block;
+      width: auto !important;
+      height: auto !important;
+      max-width: 400px !important;
+      max-height: 550px !important;
+    }
 
     .rsvp-button {
       display: inline-block;
@@ -588,34 +629,35 @@
       font-size: 12px;
       font-weight: 600;
     }
+
     .organizer-actions {
-  margin-top: 18px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-.organizer-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 12px 22px;
-  background: #8f9446;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 999px;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1;
-  transition: 0.2s ease;
-}
+    .organizer-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 12px 22px;
+      background: #8f9446;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1;
+      transition: 0.2s ease;
+    }
 
-.organizer-btn:hover {
-  background: #7f843d;
-  transform: translateY(-1px);
-}
+    .organizer-btn:hover {
+      background: #7f843d;
+      transform: translateY(-1px);
+    }
 
     .meeting-title {
       margin-top: 28px;
@@ -652,6 +694,22 @@
       font-size: 13px;
       padding-top: 8px;
     }
+
+    @media (max-width: 360px) {
+      .two-photos {
+        gap: 6px;
+      }
+
+      .photo-box-1 {
+        width: 104px;
+        height: 150px;
+      }
+
+      .photo-box-2 {
+        width: 84px;
+        height: 124px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -663,18 +721,28 @@
       <div class="phone-frame">
         <div class="phone-screen">
           <div class="phone-center">
-            <div class="screen-top-note">
-              Илья + Анастасия =<br><span>любовь</span>
+            <div class="phone-top">
+              <div class="screen-top-note">
+                Илья + Анастасия =<br><span>любовь</span>
+              </div>
+
+              <div class="mini-hearts">♥ ♥ ♥ ♥ ♥</div>
+
+              <div class="screen-photo two-photos">
+                <div class="photo-box photo-box-1">
+                  <img src="/static/img/илья.jpg" alt="Анастасия" class="photo-img" />
+                </div>
+
+                <div class="photo-box photo-box-2">
+                  <img src="/static/img/настя.jpg" alt="Илья" class="photo-img" />
+                </div>
+              </div>
             </div>
 
-            <div class="mini-hearts">♥ ♥ ♥ ♥ ♥</div>
-
-            <div class="screen-photo">
-              <img src="/static/img/н и и.png" alt="Анастасия и Илья">
+            <div class="phone-bottom">
+              <div class="date-pill">8 августа 2026 года</div>
             </div>
           </div>
-
-          <div class="date-pill">8 августа 2026 года</div>
         </div>
       </div>
 
@@ -701,35 +769,35 @@
     </section>
 
     <section class="card timing-card">
-  <div class="section-title script">Тайминг</div>
+      <div class="section-title script">Тайминг</div>
 
-  <div class="timeline">
-    <div class="time-item">
-      <div class="time-title">Сбор желающих гостей у ЗАГСа</div>
-      <div class="time-value">15:30</div>
-    </div>
+      <div class="timeline">
+        <div class="time-item">
+          <div class="time-title">Сбор желающих гостей у ЗАГСа</div>
+          <div class="time-value">15:30</div>
+        </div>
 
-    <div class="time-item">
-      <div class="time-title">Регистрация</div>
-      <div class="time-value">16:00</div>
-    </div>
+        <div class="time-item">
+          <div class="time-title">Регистрация</div>
+          <div class="time-value">16:00</div>
+        </div>
 
-    <div class="time-item">
-      <div class="time-title">Сбор гостей на банкет</div>
-      <div class="time-value">17:30</div>
-    </div>
+        <div class="time-item">
+          <div class="time-title">Сбор гостей на банкет</div>
+          <div class="time-value">17:30</div>
+        </div>
 
-    <div class="time-item">
-      <div class="time-title">Начало банкета</div>
-      <div class="time-value">18:00</div>
-    </div>
+        <div class="time-item">
+          <div class="time-title">Начало банкета</div>
+          <div class="time-value">18:00</div>
+        </div>
 
-    <div class="time-item">
-      <div class="time-title">Окончание официальной части</div>
-      <div class="time-value">23:00</div>
-    </div>
-  </div>
-</section>
+        <div class="time-item">
+          <div class="time-title">Окончание официальной части</div>
+          <div class="time-value">23:00</div>
+        </div>
+      </div>
+    </section>
 
     <section class="card">
       <div class="section-title script">Локация</div>
@@ -797,14 +865,14 @@
     </section>
 
     <section class="card film-card">
-  <div class="section-title script">Воспоминания</div>
+      <div class="section-title script">Воспоминания</div>
 
-  <div class="memory-box">
-    Дорогие гости! После свадьбы в этом поле 
-    появится ссылка на диск со всеми фотографями со свадьбы.
-    <br><br>
-  </div>
-</section>
+      <div class="memory-box">
+        Дорогие гости! После свадьбы в этом поле
+        появится ссылка на диск со всеми фотографями со свадьбы.
+        <br><br>
+      </div>
+    </section>
 
     <section class="card">
       <div class="section-title script">Анкета</div>
@@ -826,45 +894,43 @@
       </div>
 
       <div class="organizer-box">
-  <div class="organizer-title">Организатор - Яна</div>
-  <div class="organizer-text">
-    Если у вас появятся вопросы,
-    пожалуйста, свяжитесь с организатором.
-  </div>
+        <div class="organizer-title">Организатор - Яна</div>
+        <div class="organizer-text">
+          Если у вас появятся вопросы,
+          пожалуйста, свяжитесь с организатором.
+        </div>
 
-  <div class="organizer-actions">
-    <a href="https://t.me/+79120330605" class="organizer-btn" target="_blank" rel="noopener noreferrer">
-      Telegram
-    </a>
-    <a href="tel:+79120330605" class="organizer-btn">
-      Телефон
-    </a>
-  </div>
-</div>
+        <div class="organizer-actions">
+          <a href="https://t.me/+79120330605" class="organizer-btn" target="_blank" rel="noopener noreferrer">
+            Telegram
+          </a>
+          <a href="tel:+79120330605" class="organizer-btn">
+            Телефон
+          </a>
+        </div>
+      </div>
 
       <div class="section-title script meeting-title">До встречи через</div>
 
-<div class="meeting-photo">
-  <img src="/static/img/жн.png" alt="Жених и невеста">
-</div>
-
-
+      <div class="meeting-photo">
+        <img src="/static/img/жн.png" alt="Пара" />
+      </div>
 
       <div class="countdown">
         <div class="countdown-item">
-          <div class="countdown-value" id="days">00</div>
+          <div class="countdown-value" id="days">0</div>
           <div class="countdown-label">дней</div>
         </div>
         <div class="countdown-item">
-          <div class="countdown-value" id="hours">00</div>
+          <div class="countdown-value" id="hours">0</div>
           <div class="countdown-label">часов</div>
         </div>
         <div class="countdown-item">
-          <div class="countdown-value" id="minutes">00</div>
+          <div class="countdown-value" id="minutes">0</div>
           <div class="countdown-label">минут</div>
         </div>
         <div class="countdown-item">
-          <div class="countdown-value" id="seconds">00</div>
+          <div class="countdown-value" id="seconds">0</div>
           <div class="countdown-label">секунд</div>
         </div>
       </div>
@@ -876,17 +942,17 @@
   </div>
 
   <script>
-    const weddingDate = new Date('2026-08-08T16:00:00');
+    const weddingDate = new Date("2026-08-08T15:30:00+05:00").getTime();
 
     function updateCountdown() {
-      const now = new Date();
+      const now = new Date().getTime();
       const diff = weddingDate - now;
 
       if (diff <= 0) {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
+        document.getElementById("days").textContent = 0;
+        document.getElementById("hours").textContent = 0;
+        document.getElementById("minutes").textContent = 0;
+        document.getElementById("seconds").textContent = 0;
         return;
       }
 
@@ -895,10 +961,10 @@
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
 
-      document.getElementById('days').textContent = String(days).padStart(2, '0');
-      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
     }
 
     updateCountdown();
